@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preguntas>
+    <pregunta>
+        <tipo>radio</tipo>
+        <enunciado>1 -  La encefalopatía dialítica se ha relacionado con la acción tóxica de:</enunciado>
+        <respuesta>Magnesio</respuesta>
+        <respuesta>Potasio</respuesta>
+        <respuesta correcto="true">Aluminio</respuesta>
+        <respuesta>Calcio</respuesta>
+    </pregunta>
+	
+    <pregunta>
+        <tipo>radio</tipo>
+        <enunciado>2 - En un paciente tuberculoso, con caverna apical crónica, baciloscopia negativa y hemoptisis severa, el tratamiento de elección es:</enunciado>
+        <respuesta>Toracoplastia</respuesta>
+        <respuesta>Controles periódicos</respuesta>
+        <respuesta correcto="true">Resección pulmonar</respuesta>
+        <respuesta>Cambiar el tratamiento específico</respuesta>
+    </pregunta>
+	
+	<pregunta>
+        <tipo>text</tipo>
+        <enunciado>3 - Indica la causa más frecuente de hemorragia subaracnoidea:</enunciado>
+        <respuesta>Aneurismas</respuesta>
+    </pregunta>
+	
+    <pregunta>
+        <tipo>check</tipo>
+        <enunciado>4 - Dos de las siguientes lesiones asientan en el mediastino medio:</enunciado>
+        <respuesta>Timomas</respuesta>
+        <respuesta correcto="true">Quistes pleuropericárdicos</respuesta>
+        <respuesta correcto="true">Linfomas</respuesta>
+        <respuesta>Teratomas</respuesta>
+    </pregunta>
+	
+    <pregunta>
+        <tipo>select</tipo>
+        <enunciado>5 - ¿Cuál de las siguientes masas mesiánicas no suele localizarse en mediastino posterior?</enunciado>
+        <respuesta correcto="true">Carcinoma de células embrionarias</respuesta>
+        <respuesta>Neurofibroma</respuesta>
+        <respuesta>Paraganglioma</respuesta>
+        <respuesta>Pseudoquiste pancreático</respuesta>
+    </pregunta>
+	
+    <pregunta>
+        <tipo>radio</tipo>
+        <enunciado>6 - La causa más frecuente de mediastinitis aguda no postquirúrgica viene dada por:</enunciado>
+        <respuesta correcto="true">Rotura esofágica</respuesta>
+        <respuesta>Perforación de hernia de hiato</respuesta>
+        <respuesta>Rotura traqueal</respuesta>
+        <respuesta>Rotura de grandes vasos</respuesta>
+    </pregunta>
+	
+    <pregunta>
+        <tipo>select</tipo>
+        <enunciado>7 - El tratamiento de elección en el carcinoma escamoso en estado II es:</enunciado>
+        <respuesta>Invasión traqueal externa</respuesta>
+        <respuesta correcto="true">Presencia de cualquier metástasis a distancia</respuesta>
+        <respuesta>Síndrome de cava superior</respuesta>
+        <respuesta>Invasión del recurrente</respuesta>
+    </pregunta>
+	
+    <pregunta>
+        <tipo>check</tipo>
+        <enunciado>8 - ¿Cuáles de las siguientes afirmaciones son falsas?</enunciado>
+        <respuesta>Teratoma-masa calcificada</respuesta>
+        <respuesta>Linfoma-hipercalcemia</respuesta>
+        <respuesta correcto="true">Timona-ginecomastia</respuesta>
+        <respuesta correcto="true">Linfoma-masa calcificada</respuesta>
+    </pregunta>
+	
+    <pregunta>
+        <tipo>text</tipo>
+        <enunciado>9 - En nuestro medio ¿Cuál es la primera causa de parkinsonismo secundario?</enunciado>
+        <respuesta>Fármacos</respuesta>
+    </pregunta>
+	
+    <pregunta>
+        <tipo>radio</tipo>
+        <enunciado>10 - ¿Cuál es el método terapéutico más utilizado en el volet traumático sin distress respiratorio?</enunciado>
+        <respuesta>El vendaje con esparadrapo</respuesta>
+        <respuesta>La tracción esquelética</respuesta>
+        <respuesta>La estabilización mecánica externa</respuesta>
+        <respuesta correcto="true">La analgesia por bloqueo o epidural</respuesta>
+    </pregunta>
+</preguntas>
