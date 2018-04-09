@@ -17,7 +17,7 @@ function leerXML() {
             imprimirPreguntas();
         }
     };
-    xhttp.open("POST", "test.xml", true);
+    xhttp.open("POST", "./test.xml", true);
     xhttp.send();
 
 }
