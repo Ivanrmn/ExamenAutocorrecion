@@ -21,3 +21,31 @@ function leerXML() {
     xhttp.send();
 
 }
+
+function imprimirPreguntas() {
+
+    for (var i = 0; i < numPreguntas; i++) {
+
+        var tipo = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('tipo')[0].innerHTML;
+
+        switch (tipo) {
+            case "radio":
+                crearRadio(i);
+                break;
+            case "check":
+                crearCheck(i);
+                break;
+            case "text":
+                crearText(i);
+                break;
+            case "select":
+                crearSelect(i);
+                break;
+            case "range":
+                crearRange(i);
+                break;
+            default:
+                console.log("default");
+        }
+    }
+}
