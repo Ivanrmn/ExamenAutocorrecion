@@ -46,13 +46,48 @@ function imprimirPreguntas() {
             default:
                 console.log("default");
         }
-		puntuacion();
-        document.getElementById("boton").setAttribute("style", "background-color: grey !important");
-        document.getElementById("boton").innerText = totalPoints + "/" + numPreg + " preguntas correctas";
-        isAlreadyCorrect = true;
-    }
-    else {
-        alert("Examen ya corregido. Recarga la página para volver a intentarlo.")
     }
 }
 
+
+function checkPreguntas() {
+    document.getElementById("pregunta").innerHTML = "<h3>Resultado:</h3><br/>";
+    try{
+    var numPreg = xmlDoc.getElementsByTagName('pregunta').length;
+
+    for (var i = 0; i < numPreg; i++) {
+        var tipo = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName("tipo")[0].innerHTML;
+
+        if (tipo === "radio") {
+            checkRadio(i);
+        }
+        else if(tipo === "select"){
+            checkSelect(i);
+        }
+        else if (tipo = "text"){
+            checkText(i);
+        }
+		else if (tipo === "check") {
+            checkCheckbox(i);
+        }
+    }
+}
+    catch (exception) {
+        alert("Debes contestar todas las preguntas.");
+    }
+}
+
+
+
+
+function crearPuntuacion() {
+    var element = document.getElementById("formulario");
+
+    var div = document.createElement("div");
+    div.setAttribute("id", "puntuacion");
+    element.appendChild(div);
+
+    var label = document.createElement('label');
+    label.innerHTML = "Puntuacion total:" + totalPoints;
+    div.appendChild(label);
+}
