@@ -6,7 +6,6 @@ window.onload = function () {
     leerXML();
 };
 
-
 function leerXML() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -17,7 +16,7 @@ function leerXML() {
             imprimirPreguntas();
         }
     };
-    xhttp.open("POST", "./test.xml", true);
+    xhttp.open("POST", "xml/test.xml", true);
     xhttp.send();
 
 }
@@ -47,5 +46,13 @@ function imprimirPreguntas() {
             default:
                 console.log("default");
         }
+		puntuacion();
+        document.getElementById("boton").setAttribute("style", "background-color: grey !important");
+        document.getElementById("boton").innerText = totalPoints + "/" + numPreg + " preguntas correctas";
+        isAlreadyCorrect = true;
+    }
+    else {
+        alert("Examen ya corregido. Recarga la página para volver a intentarlo.")
     }
 }
+
