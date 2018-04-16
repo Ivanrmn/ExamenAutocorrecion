@@ -15,3 +15,13 @@ h1{
 	font-size: 380%;
 	padding-top: 2%;
 }
+
+div{
+	background-color: #B6F8BB;
+	border-radius: 21%;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	width: 70%;
+	border: solid 1% #28472A;
+	margin:auto;
+	}
