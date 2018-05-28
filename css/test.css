@@ -4,8 +4,8 @@ body{
 }
 
 img{
-	display:block;
-	margin:auto;
+	display: block;
+	margin: auto;
 	width: 50%;
 	height: 50%;
 }
@@ -23,5 +23,6 @@ div{
 	padding-bottom: 3%;
 	width: 70%;
 	border: solid 1% #28472A;
-	margin:auto;
+	margin: auto;
 	}
+	
