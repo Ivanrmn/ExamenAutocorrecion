@@ -281,3 +281,38 @@ function corregirCheck(x) {
             }
         }
     }
+
+function corregirExamen() {
+        var numPreg = xmlDoc.getElementsByTagName('pregunta').length;
+    
+        for (var i = 0; i < numPreg; i++) {
+            var tipo = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName("tipo")[0].innerHTML;
+    
+            if (tipo === "radio") {
+                corregirRadio(i);
+            }
+            else if(tipo === "select"){
+                corregirSelect(i);
+            }
+            else if (tipo = "text"){
+                corregirText(i);
+            }
+            else if (tipo === "check") {
+                corregirCheck(i);
+            }
+        }
+        mostrarResultado();
+        }
+
+function mostrarResultado() {
+    var element = document.getElementById("myForm");
+    var div = document.createElement("div");
+    var label = document.createElement('label');
+
+    element.appendChild(div);
+    label.innerHTML = "<h4 align='center'>" + "NOTA: "  + aciertos + "/10" + "</h4><br/>";
+    div.appendChild(label);
+    aciertos = 0;
+    
+    setTimeout('document.location.reload()',25000)
+}
