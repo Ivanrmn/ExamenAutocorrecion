@@ -1,7 +1,6 @@
 var xmlDoc;
 var preguntas = 0;
 var aciertos = 0;
-var yaCorregido = false;
 
 window.onload = function () {
     leerXML();
@@ -15,6 +14,7 @@ function leerXML() {
             xmlDoc = this.responseXML;
             numPreguntas = xmlDoc.getElementsByTagName('pregunta').length;
             imprimirPreguntas();
+            mostrarBoton();
         }
     };
     xhttp.open("POST", "xml/test.xml", true);
@@ -51,64 +51,60 @@ function imprimirPreguntas() {
 }
 
 
-function corregirExamen() {
-    document.getElementById("pregunta").innerHTML = "<h3>Resultado:</h3><br/>";
-    try{
-    var numPreg = xmlDoc.getElementsByTagName('pregunta').length;
-	aciertos = 0;
+function crearRadio(i) {
 
-    for (var i = 0; i < numPreg; i++) {
-        var tipo = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName("tipo")[0].innerHTML;
-
-        if (tipo === "radio") {
-            checkRadio(i);
-        }
-        else if(tipo === "select"){
-            checkSelect(i);
-        }
-        else if (tipo = "text"){
-            checkText(i);
-        }
-		else if (tipo === "check") {
-            checkCheckbox(i);
-        }
-    }
-	Resultado();
-        document.getElementById("boton");
-        yaCorregido = true;
-	}
-	catch (exception) {
-        alert("Recarga la página para hacer el examen de nuevo.")
-   
-    }
-}
-
-
-function crearPuntuacion() {
-    var element = document.getElementById("formulario");
+    var numSol = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta').length;
+    var element = document.getElementById("myForm");
 
     var div = document.createElement("div");
-    div.setAttribute("id", "puntuacion");
+    div.setAttribute("id", "div" + i);
+    div.setAttribute("class", "pregunta");
     element.appendChild(div);
 
-    var label = document.createElement('label');
-    label.innerHTML = "Puntuacion total:" + totalPoints;
-    div.appendChild(label);
-}
+    var enunciado = document.createElement("label");
+    enunciado.setAttribute('for', i);
+    enunciado.innerHTML = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('enunciado')[0].innerHTML + "<br>";
+    div.appendChild(enunciado);
+    
+    for (var k = 0; k < numSol; k++) {
 
+        var question = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
+        var radioBut = document.createElement("input");
+
+        radioBut.setAttribute("type", "radio");
+        radioBut.setAttribute("name", i);
+        radioBut.setAttribute("value", k);
+        radioBut.setAttribute('id', k + "radio");
+        div.appendChild(radioBut);
+
+        var label = document.createElement('label');
+        label.setAttribute('for', i);
+        label.innerHTML = question + "<br>";
+
+        div.appendChild(label);
+    }
+}
 
 function corregirRadio(x) {
 
     var radio = document.getElementsByName(x);
-    for (var z = 0; z < radio.length; z++) {
+    var isNull = true;
+    for (var z = 0, length = radio.length; z < length; z++) {
 
-        if (radios[z].checked) {
-            var pregRespuesta = radios[z].getAttribute("value");
+        if (radio[z].checked) {
+            var pregRespuesta = radio[z].getAttribute("value");
             var resp = xmlDoc.getElementsByTagName("pregunta")[x].getElementsByTagName("respuesta")[pregRespuesta].getAttribute("correcto");
             if (resp) {
+                document.getElementById("div"+x).style.color = "green";
 				resultados++;
+            }else{
+                document.getElementById("div"+x).style.color = "red";
             }
             break;
         }
+        if(isNull){
+            document.getElementById("div"+x).style.color = "red";
+        }
     }
 }
+
