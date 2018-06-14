@@ -1,6 +1,7 @@
 var xmlDoc;
 var preguntas = 0;
 var aciertos = 0;
+var isNull = true;
 
 window.onload = function () {
     leerXML();
@@ -88,7 +89,6 @@ function crearRadio(i) {
 function corregirRadio(x) {
 
     var radio = document.getElementsByName(x);
-    var isNull = true;
 
     for (var z = 0, length = radio.length; z < length; z++) {
 
@@ -152,7 +152,6 @@ function crearSelect(i) {
 function corregirSelect(x) {
 
     var option = document.getElementsByName(x);
-    var isNull = true;
 
     for (var z = 0, length = option.length; z < length; z++) {
         if (option[z].selected){
