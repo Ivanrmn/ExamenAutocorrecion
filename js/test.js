@@ -199,3 +199,20 @@ function crearText(i) {
         div.appendChild(label);
     }
 }
+
+function corregirText(x) {
+    var user = document.getElementById(x + "text").value;
+
+    var respuesta = xmlDoc.getElementsByTagName("pregunta")[x].getElementsByTagName("respuesta")[0].innerHTML;
+
+    if(isNull){
+        document.getElementById("div"+x).style.color = "red";
+
+    } else if (respuesta == user) {
+        document.getElementById("div"+x).style.backgroundColor="green";
+        aciertos++;
+        
+    }else {
+         document.getElementById("div"+x).style.backgroundColor="red";
+    }
+}
