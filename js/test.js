@@ -2,7 +2,6 @@ var xmlDoc;
 var preguntas = 0;
 var aciertos = 0;
 var isNull = true;
-var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
 
 window.onload = function () {
     leerXML();
@@ -57,18 +56,19 @@ function crearRadio(i) {
 
     var numPreg = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta').length;
     var element = document.getElementById("myForm");
-
     var div = document.createElement("div");
+    var enunciado = document.createElement("label");
+
     div.setAttribute("id", "div" + i);
     div.setAttribute("class", "pregunta");
     element.appendChild(div);
 
-    var enunciado = document.createElement("label");
     enunciado.setAttribute('for', i);
     enunciado.innerHTML = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('enunciado')[0].innerHTML + "<br>";
     div.appendChild(enunciado);
     
     for (var k = 0; k < numPreg; k++) {
+        var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
         var radioBut = document.createElement("input");
 
         radioBut.setAttribute("type", "radio");
@@ -131,6 +131,7 @@ function crearSelect(i) {
 
     for (var k = 0; k < numPreg; k++) {
         var option = document.createElement("option");
+        var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
 
         option.setAttribute("name", i);
         option.setAttribute("value", k);
@@ -187,6 +188,7 @@ function crearText(i) {
 
     for (var k = 0; k < numPreg; k++) {
         var text = document.createElement("input");
+        var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
 
         text.setAttribute("type", "text");
         text.setAttribute("name", i);
@@ -235,6 +237,7 @@ function crearCheck(i) {
 
     for (var k = 0; k < numPreg; k++) {        
         var check = document.createElement("input");
+        var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
 
         check.setAttribute("type", "checkbox");
         check.setAttribute("name", i);
@@ -313,6 +316,6 @@ function mostrarResultado() {
     label.innerHTML = "<h4 align='center'>" + "NOTA: "  + aciertos + "/10" + "</h4><br/>";
     div.appendChild(label);
     aciertos = 0;
-    
+
     setTimeout('document.location.reload()',25000)
 }
