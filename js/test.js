@@ -3,6 +3,7 @@ var preguntas = 0;
 var aciertos = 0;
 
 window.onload = function () {
+    alert("Para aprobar el examen debes acertar al menos 5 preguntas. Suerte!");
     leerXML();
 };
 
@@ -281,6 +282,7 @@ function corregirExamen() {
             }
         }
         mostrarResultado();
+        alert("Examen corregido. En 25 segundos se reiniciará, si no quieres esperar actualiza la página.");
         }
 
 function mostrarResultado() {
