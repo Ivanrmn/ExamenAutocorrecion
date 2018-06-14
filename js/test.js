@@ -282,7 +282,7 @@ function corregirExamen() {
             }
         }
         mostrarResultado();
-        alert("Examen corregido. En 25 segundos se reiniciará, si no quieres esperar actualiza la página.");
+        alert("Examen corregido. En 10 segundos se reiniciará, pero para ello debes cerrar este mensaje ;)");
         }
 
 function mostrarResultado() {
@@ -294,7 +294,7 @@ function mostrarResultado() {
     label.innerHTML = "<h4 align='center'>" + "NOTA: "  + aciertos + "/10" + "</h4><br/>";
     div.appendChild(label);
     aciertos = 0;
-    setTimeout('document.location.reload()',25000)
+    setTimeout('document.location.reload()',10000)
 }
 
 function mostrarBoton(){
