@@ -310,3 +310,16 @@ function mostrarResultado() {
 
     setTimeout('document.location.reload()',25000)
 }
+
+function mostrarBoton(){
+    var element = document.getElementById("myForm");
+    element.innerHTML = element.innerHTML + "<br/>";
+    var textinp = document.createElement('button');
+    textinp.setAttribute('type', "button");
+    textinp.setAttribute('onclick', "checkPreguntas()");
+    textinp.innerHTML= "Corregir test";
+    element.appendChild(textinp);
+    var bien = document.createElement('div');
+    bien.setAttribute('id', "bien");
+    element.appendChild(bien);
+}
