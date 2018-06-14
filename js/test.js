@@ -2,6 +2,7 @@ var xmlDoc;
 var preguntas = 0;
 var aciertos = 0;
 var isNull = true;
+var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
 
 window.onload = function () {
     leerXML();
@@ -68,8 +69,6 @@ function crearRadio(i) {
     div.appendChild(enunciado);
     
     for (var k = 0; k < numPreg; k++) {
-
-        var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
         var radioBut = document.createElement("input");
 
         radioBut.setAttribute("type", "radio");
@@ -131,8 +130,6 @@ function crearSelect(i) {
     div.appendChild(enunciado);
 
     for (var k = 0; k < numPreg; k++) {
-
-        var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
         var option = document.createElement("option");
 
         option.setAttribute("name", i);
@@ -189,7 +186,6 @@ function crearText(i) {
 	div.appendChild(enunciado);
 
     for (var k = 0; k < numPreg; k++) {
-        var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
         var text = document.createElement("input");
 
         text.setAttribute("type", "text");
