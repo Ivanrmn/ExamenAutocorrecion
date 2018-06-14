@@ -207,12 +207,46 @@ function corregirText(x) {
 
     if(isNull){
         document.getElementById("div"+x).style.color = "red";
-
+        
     } else if (respuesta == user) {
         document.getElementById("div"+x).style.backgroundColor="green";
         aciertos++;
         
     }else {
          document.getElementById("div"+x).style.backgroundColor="red";
+    }
+}
+
+
+function crearCheck(i) {
+    var numPreg = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta').length;
+    var element = document.getElementById("myForm");
+
+    var div = document.createElement("div");
+    div.setAttribute("id", "div" + i);
+    div.setAttribute("class", "pregunta");
+    element.appendChild(div);
+    
+    var enunciado = document.createElement("label");
+    enunciado.setAttribute('for', i);
+    enunciado.innerHTML = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('enunciado')[0].innerHTML + "<br>";
+ 
+	div.appendChild(enunciado);
+
+    for (var k = 0; k < numPreg; k++) {        
+        var check = document.createElement("input");
+
+        check.setAttribute("type", "checkbox");
+        check.setAttribute("name", i);
+        check.setAttribute("value", k);
+        check.setAttribute('id', k + "check");
+
+        div.appendChild(check);
+
+        var label = document.createElement('label');
+        label.setAttribute('for', i);
+        label.innerHTML = pregunta + "<br>";
+
+        div.appendChild(label);
     }
 }
