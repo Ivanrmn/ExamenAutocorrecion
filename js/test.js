@@ -240,7 +240,7 @@ function crearCheck(i) {
         check.setAttribute("name", i);
         check.setAttribute("value", k);
         check.setAttribute('id', k + "check");
-
+        
         div.appendChild(check);
 
         var label = document.createElement('label');
@@ -250,3 +250,34 @@ function crearCheck(i) {
         div.appendChild(label);
     }
 }
+
+function corregirCheck(x) {
+
+    var respCorrectas = 0;
+    var radios = document.getElementsByName(x);
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        var pregRespuesta = radios[i].getAttribute("value");
+        if (xmlDoc.getElementsByTagName("pregunta")[x].getElementsByTagName("respuesta")[pregRespuesta].getAttribute("correcto")) {
+            respCorrectas += 1;
+        }
+}
+    for (var i = 0, length = radios.length; i < length; i++) {
+
+        if (radios[i].checked){
+            var pregRespuesta = radios[i].getAttribute("value");
+            var resp = xmlDoc.getElementsByTagName("pregunta")[x].getElementsByTagName("respuesta")[pregRespuesta].getAttribute("correcto");
+            
+            if(isNull) {
+                document.getElementById("div" + x).style.backgroundColor = "red"; 
+                
+            }else if (resp) {
+                document.getElementById("div"+x).style.backgroundColor="green";
+                aciertos++;
+            }
+
+            }else {
+                document.getElementById("div"+x).style.backgroundColor="red";
+            }
+        }
+    }
