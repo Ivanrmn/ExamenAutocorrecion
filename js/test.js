@@ -13,7 +13,7 @@ function leerXML() {
         if (this.readyState === 4 && this.status === 200) {
 
             xmlDoc = this.responseXML;
-            numPreguntas = xmlDoc.getElementsByTagName('pregunta').length;
+            preguntas = xmlDoc.getElementsByTagName('pregunta').length;
             imprimirPreguntas();
             mostrarBoton();
         }
@@ -25,7 +25,7 @@ function leerXML() {
 
 function imprimirPreguntas() {
 
-    for (var i = 0; i < numPreguntas; i++) {
+    for (var i = 0; i < preguntas; i++) {
 
         var tipo = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('tipo')[0].innerHTML;
 
@@ -54,7 +54,7 @@ function imprimirPreguntas() {
 
 function crearRadio(i) {
 
-    var numSol = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta').length;
+    var numPreg = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta').length;
     var element = document.getElementById("myForm");
 
     var div = document.createElement("div");
@@ -67,9 +67,9 @@ function crearRadio(i) {
     enunciado.innerHTML = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('enunciado')[0].innerHTML + "<br>";
     div.appendChild(enunciado);
     
-    for (var k = 0; k < numSol; k++) {
+    for (var k = 0; k < numPreg; k++) {
 
-        var question = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
+        var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
         var radioBut = document.createElement("input");
 
         radioBut.setAttribute("type", "radio");
@@ -80,7 +80,7 @@ function crearRadio(i) {
 
         var label = document.createElement('label');
         label.setAttribute('for', i);
-        label.innerHTML = question + "<br>";
+        label.innerHTML = pregunta + "<br>";
 
         div.appendChild(label);
     }
@@ -97,7 +97,7 @@ function corregirRadio(x) {
             var resp = xmlDoc.getElementsByTagName("pregunta")[x].getElementsByTagName("respuesta")[pregRespuesta].getAttribute("correcto");
             if (resp) {
                 document.getElementById("div"+x).style.color = "green";
-				resultados++;
+				aciertos++;
             }else{
                 document.getElementById("div"+x).style.color = "red";
             }
@@ -110,7 +110,7 @@ function corregirRadio(x) {
 }
 
 function crearSelect(i) {
-    var numSol = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta').length;
+    var numPreg = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta').length;
     var element = document.getElementById("myForm");
 
     var div = document.createElement("div");
@@ -130,15 +130,15 @@ function crearSelect(i) {
 
     div.appendChild(enunciado);
 
-    for (var k = 0; k < numSol; k++) {
+    for (var k = 0; k < numPreg; k++) {
 
-        var question = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
+        var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
         var option = document.createElement("option");
 
         option.setAttribute("name", i);
         option.setAttribute("value", k);
         option.setAttribute('id', k + "check");
-        option.innerHTML = question;
+        option.innerHTML = pregunta;
         select.appendChild(option);
 
         var label = document.createElement('label');
@@ -160,7 +160,7 @@ function corregirSelect(x) {
 
         if (resp) {
             document.getElementById("div"+x).style.backgroundColor="green";
-            resultados++;   
+            aciertos++;   
         }
         else {
             document.getElementById("div"+x).style.backgroundColor="red";
@@ -170,5 +170,36 @@ function corregirSelect(x) {
         if(isNull){
             document.getElementById("div"+x).style.color = "red";
     }
+}
+}
+
+function crearText(i) {
+    var numPreg = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta').length;
+    var element = document.getElementById("myForm");
+
+    var div = document.createElement("div");
+    div.setAttribute("id", "div" + i);
+    div.setAttribute("class", "pregunta");
+    element.appendChild(div);
+
+    var enunciado = document.createElement("label");
+    enunciado.setAttribute('for', i);
+    enunciado.innerHTML = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('enunciado')[0].innerHTML + "<br>";
+    
+	div.appendChild(enunciado);
+
+    for (var k = 0; k < numPreg; k++) {
+        var pregunta = xmlDoc.getElementsByTagName('pregunta')[i].getElementsByTagName('respuesta')[k].innerHTML;
+        var text = document.createElement("input");
+
+        text.setAttribute("type", "text");
+        text.setAttribute("name", i);
+        text.setAttribute('id', i + "text");
+        div.appendChild(text);
+
+        var label = document.createElement('label');
+        label.setAttribute('for', i);
+        label.innerHTML = "<br>";
+        div.appendChild(label);
     }
 }
