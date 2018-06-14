@@ -16,6 +16,18 @@ h1{
 	padding-top: 2%;
 }
 
+h4{
+	margin-bottom: 900px;
+	margin: 20px;
+	padding: 20px;
+	text-align:center; 
+	color: #FCDB00;
+	font-family: impact;
+	font-size: 46px;
+	letter-spacing: 12px;
+	text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+}
+
 div{
 	background-color: #B6F8BB;
 	border-radius: 21%;
@@ -24,5 +36,11 @@ div{
 	width: 70%;
 	border: solid 1% #28472A;
 	margin: auto;
+	}
+	
+button{
+	margin-left: 45%;
+	margin-bottom: 1%;
+	margin-top: 1%;
 	}
 	
