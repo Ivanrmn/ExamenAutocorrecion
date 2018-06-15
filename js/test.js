@@ -3,7 +3,9 @@ var preguntas = 0;
 var aciertos = 0;
 
 window.onload = function () {
-    alert("Para aprobar el examen debes acertar al menos 5 preguntas. Suerte!");
+    alert("Para aprobar el examen debes acertar al menos 5 preguntas. Tienes 10 minutos. Suerte!");
+    // Con el siguiente setTimeout, hacemos que se actualice la página automáticamente cada 10 minutos
+    setTimeout('document.location.reload()',600000)
     leerXML();
 };
 
@@ -235,14 +237,14 @@ function crearCheck(i) {
 }
 
 function corregirCheck(x) {
-    var contCorrectas = 0;
+    var pregCorrectas = 0;
     var isNull = true;
     var radios = document.getElementsByName(x);
 
     for (var z = 0, length = radios.length; z < length; z++) {
         var preguntaSel = radios[z].getAttribute("value");
         if (xmlDoc.getElementsByTagName("pregunta")[x].getElementsByTagName("respuesta")[preguntaSel].getAttribute("correcto")) {
-            contCorrectas += 1;
+            pregCorrectas += 1;
         }
     }
     for (var z = 0, length = radios.length; z < length; z++) {
@@ -253,7 +255,8 @@ function corregirCheck(x) {
             
             if (resp) {
                 document.getElementById("div"+x).style.color = "green";
-                resultados++;
+                aciertos++;
+                
             }else {
                 document.getElementById("div"+x).style.color = "red";
             }
@@ -282,7 +285,7 @@ function corregirExamen() {
             }
         }
         mostrarResultado();
-        alert("Examen corregido. En 10 segundos se reiniciará, pero para ello debes cerrar este mensaje ;)");
+        alert("Examen corregido. En 10 segundos se reiniciará, pero para ello debes cerrar este");
         }
 
 function mostrarResultado() {
