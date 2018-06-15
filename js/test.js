@@ -285,7 +285,7 @@ function corregirExamen() {
             }
         }
         mostrarResultado();
-        alert("Examen corregido. En 10 segundos se reiniciará, pero para ello debes cerrar este");
+        alert("Examen corregido. En 10 segundos se reiniciará, pero para ello debes cerrar este mensaje");
         }
 
 function mostrarResultado() {
